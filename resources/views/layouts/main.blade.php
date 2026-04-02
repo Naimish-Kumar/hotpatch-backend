@@ -12,6 +12,7 @@
     <meta property="og:image" content="/og-image.png">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
@@ -21,9 +22,33 @@
             backdrop-filter: blur(24px) saturate(180%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
+        .cursor-aura {
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+            position: fixed;
+            z-index: 100;
+            transform: translate(-50%, -50%);
+            filter: blur(80px);
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
     </style>
 </head>
-<body class="selection:bg-cyan-500/30 selection:text-cyan-200 antialiased overflow-x-hidden">
+<body class="selection:bg-cyan-500/30 selection:text-cyan-200 antialiased overflow-x-hidden" x-data="{ 
+    mobileMenu: false,
+    cursorX: 0,
+    cursorY: 0,
+    hasMoved: false,
+    updateCursor(e) {
+        this.cursorX = e.clientX;
+        this.cursorY = e.clientY;
+        this.hasMoved = true;
+    }
+}" @mousemove.window="updateCursor($event)">
+
+    {{-- CURSOR GLOW --}}
+    <div class="cursor-aura" :style="`left: ${cursorX}px; top: ${cursorY}px; opacity: ${hasMoved ? 1 : 0};`" x-cloak></div>
 
     {{-- ─── NAVIGATION ─── --}}
     <nav class="fixed top-0 left-0 right-0 z-[60] glass-nav h-20 transition-all duration-300" 
@@ -63,9 +88,44 @@
             </div>
 
             {{-- Mobile toggle --}}
-            <button class="md:hidden p-2 text-white/70 hover:text-white transition-colors">
+            <button @click="mobileMenu = true" class="md:hidden p-2 text-white/70 hover:text-white transition-colors">
                 <i data-lucide="menu" class="w-7 h-7"></i>
             </button>
+        </div>
+
+        {{-- MOBILE MENU OVERLAY --}}
+        <div x-show="mobileMenu" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 translate-x-full"
+             x-transition:enter-end="opacity-100 translate-x-0"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 translate-x-0"
+             x-transition:leave-end="opacity-0 translate-x-full"
+             class="fixed inset-0 z-[100] bg-[#050505] p-10 flex flex-col font-heading" x-cloak>
+            
+            <div class="flex items-center justify-between mb-20">
+                <x-logo width="140" height="36" />
+                <button @click="mobileMenu = false" class="p-2 text-white/50 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-8 h-8"></i>
+                </button>
+            </div>
+
+            <nav class="flex-1 space-y-8 flex flex-col items-center">
+                <a @click="mobileMenu = false" href="{{ route('home') }}#features" class="text-3xl font-black text-white/60 hover:text-cyan-400 uppercase tracking-[4px]">Features</a>
+                <a @click="mobileMenu = false" href="{{ route('home') }}#how-it-works" class="text-3xl font-black text-white/60 hover:text-cyan-400 uppercase tracking-[4px]">Workflow</a>
+                <a @click="mobileMenu = false" href="{{ route('pricing') }}" class="text-3xl font-black {{ request()->routeIs('pricing') ? 'text-cyan-400' : 'text-white/60' }} hover:text-cyan-400 uppercase tracking-[4px]">Pricing</a>
+                <a @click="mobileMenu = false" href="{{ route('blog.index') }}" class="text-3xl font-black {{ request()->routeIs('blog.*') ? 'text-cyan-400' : 'text-white/60' }} hover:text-cyan-400 uppercase tracking-[4px]">Library</a>
+                <a @click="mobileMenu = false" href="{{ route('docs') }}" class="text-3xl font-black text-white/60 hover:text-cyan-400 uppercase tracking-[4px]">Nexus</a>
+            </nav>
+
+            <div class="pt-20 space-y-6 flex flex-col">
+                @auth
+                    <a href="{{ route('dashboard') }}" class="btn-primary py-5">Enter Console</a>
+                @else
+                    <a href="{{ route('login') }}" class="text-center py-4 text-white/40 font-black uppercase tracking-widest">Connect Identity</a>
+                    <a href="{{ route('register') }}" class="btn-primary py-5">Initialize Node</a>
+                @endauth
+            </div>
         </div>
     </nav>
 

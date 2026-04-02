@@ -6,6 +6,7 @@
     <title>{{ config('app.name', 'HotPatch') }} – @yield('page_title', 'Dashboard')</title>
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     
@@ -98,8 +99,11 @@
     {{-- ─── DISPLAY VIEW ─── --}}
     <div class="flex-1 flex flex-col min-w-0 bg-[#050505] relative z-10 transition-all">
         <header class="h-20 border-b border-white/[0.04] flex items-center justify-between px-12 bg-[#050505]/40 backdrop-blur-3xl sticky top-0 z-[100] font-heading">
-            <div class="flex items-center gap-4">
-                <div class="w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_8px_rgba(0,212,255,1)]"></div>
+            <div class="flex items-center gap-6">
+                <div class="relative flex items-center justify-center">
+                    <div class="absolute w-4 h-4 bg-cyan-400 rounded-full animate-ping opacity-20"></div>
+                    <div class="w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_8px_rgba(0,212,255,1)]"></div>
+                </div>
                 <h2 class="text-[11px] font-black tracking-[6px] text-white/50 uppercase">@yield('page_title', 'Cluster Overview')</h2>
             </div>
             <div class="flex items-center gap-6">

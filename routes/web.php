@@ -26,6 +26,10 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'webLogin']);
     Route::get('/register', [WebController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'webRegister']);
+
+    // Google Sign-in
+    Route::get('/auth/google', [\App\Http\Controllers\Auth\SocialController::class, 'redirectToGoogle'])->name('auth.google');
+    Route::get('/auth/google/callback', [\App\Http\Controllers\Auth\SocialController::class, 'handleGoogleCallback']);
 });
 
 // ─── Auth (logged-in) ───
