@@ -44,6 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard/devices', [DeviceController::class, 'webIndex'])->name('devices');
     Route::get('/dashboard/security', [SecurityController::class, 'webIndex'])->name('security');
     Route::get('/dashboard/settings', [SettingsController::class, 'webIndex'])->name('settings');
+    Route::post('/dashboard/settings', [SettingsController::class, 'webUpdate']);
     Route::get('/dashboard/billing', [PaymentController::class, 'webIndex'])->name('billing');
 
     // Admin

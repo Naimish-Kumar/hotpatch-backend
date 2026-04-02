@@ -37,16 +37,16 @@ class AuthController extends Controller
     public function webRegister(Request $request)
     {
         $request->validate([
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8|confirmed',
+            'display_name' => 'required|string|max:255',
+            'email'        => 'required|email|unique:users,email',
+            'password'     => 'required|string|min:8',
         ]);
 
         $user = User::create([
             'id'            => (string) Str::uuid(),
             'email'         => $request->email,
             'password_hash' => Hash::make($request->password),
-            'display_name'  => $request->name,
+            'display_name'  => $request->display_name,
             'is_verified'   => false,
         ]);
 
@@ -128,7 +128,7 @@ class AuthController extends Controller
     {
         $request->validate(['api_key' => 'required|string']);
         
-        $key = \App\Models\ApiKey::where('key_hash', hash('sha256', $request->api_key))->firstOrFail();
+        $key = \App\Models\ApiKey::where('key', hash('sha256', $request->api_key))->firstOrFail();
         $app = HotpatchApp::findOrFail($key->app_id);
         $user = User::findOrFail($app->owner_id);
 

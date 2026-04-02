@@ -44,8 +44,8 @@
             ];
             $mgmt = [
                 ['route' => 'security', 'label' => 'Audit Log', 'icon' => 'shield-check'],
-                ['route' => 'webhooks', 'label' => 'Webhooks', 'icon' => 'webhook'],
                 ['route' => 'settings', 'label' => 'Registry Config', 'icon' => 'settings-2'],
+                ['route' => 'billing', 'label' => 'Billing', 'icon' => 'credit-card'],
             ];
             @endphp
 

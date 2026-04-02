@@ -17,11 +17,11 @@ class DashboardController extends Controller
         $app = HotpatchApp::where('owner_id', auth()->id())->first();
 
         if (!$app) {
-            // If no app, maybe redirect to create app or show empty state
             return view('dashboard', [
                 'stats' => $this->getEmptyStats(),
-                'releases' => [],
-                'devices' => [],
+                'releases' => collect([]),
+                'devices' => collect([]),
+                'app' => null,
             ]);
         }
 

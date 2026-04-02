@@ -21,6 +21,16 @@ class SettingsController extends Controller
         ]);
     }
 
+    public function webUpdate(Request $request)
+    {
+        $request->validate(['name' => 'required|string|max:255']);
+        $app = HotpatchApp::where('owner_id', auth()->id())->firstOrFail();
+        
+        $app->update(['name' => $request->name]);
+
+        return redirect()->route('settings')->with('success', 'Settings saved.');
+    }
+
     public function updateApp(Request $request)
     {
         $request->validate(['name' => 'required|string|max:255']);

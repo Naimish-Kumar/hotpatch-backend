@@ -18,6 +18,8 @@ class HotpatchApp extends Model
         'name',
         'slug',
         'platform',
+        'api_key',
+        'encryption_key',
         'tier',
         'stripe_customer_id',
         'stripe_subscription_id',
