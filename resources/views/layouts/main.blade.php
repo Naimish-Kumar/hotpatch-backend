@@ -45,7 +45,7 @@
         this.cursorY = e.clientY;
         this.hasMoved = true;
     }
-}" @mousemove.window="updateCursor($event)">
+}" @mousemove.window="updateCursor($event)" style="font-family: 'Inter', sans-serif;">
 
     {{-- CURSOR GLOW --}}
     <div class="cursor-aura" :style="`left: ${cursorX}px; top: ${cursorY}px; opacity: ${hasMoved ? 1 : 0};`" x-cloak></div>
@@ -173,12 +173,12 @@
                 </div>
             </div>
 
-            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-[12px] text-[#3a5a7a] font-bold uppercase tracking-widest font-heading">
-                <div>© 2025 HotPatch Platform</div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-[10px] text-[#3a5a7a] font-black uppercase tracking-[4px] font-heading">
+                <div>© 2026 HotPatch Protocol</div>
                 <div class="flex items-center gap-10">
-                    <a href="#" class="hover:text-white transition-colors flex items-center gap-2"><i data-lucide="twitter" class="w-4 h-4"></i> Twitter</a>
-                    <a href="#" class="hover:text-white transition-colors flex items-center gap-2"><i data-lucide="github" class="w-4 h-4"></i> GitHub</a>
-                    <a href="#" class="hover:text-white transition-colors flex items-center gap-2"><i data-lucide="gamepad-2" class="w-4 h-4"></i> Discord</a>
+                    <a href="#" class="hover:text-white transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-white transition-colors">GitHub</a>
+                    <a href="#" class="hover:text-white transition-colors">Discord</a>
                 </div>
             </div>
         </div>

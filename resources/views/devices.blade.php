@@ -11,10 +11,10 @@
         </div>
         <div class="flex gap-4">
             <form action="{{ route('devices') }}" method="GET" class="relative group">
-                <input type="text" name="search" value="{{ $initialSearch }}" placeholder="Search device ID..." class="w-64 bg-white/[0.03] border border-white/10 rounded-xl px-4 py-2.5 text-xs font-bold focus:outline-none focus:border-cyan-400 pr-10 focus:w-80 transition-all duration-500 placeholder:text-gray-700">
+                <input type="text" name="search" value="{{ $initialSearch }}" placeholder="Search device ID..." class="h-input py-2.5 px-4 text-xs w-64 focus:w-80">
                 <svg class="w-4 h-4 text-gray-600 absolute right-4 top-1/2 -translate-y-1/2 group-focus-within:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             </form>
-            <select name="platform" class="bg-white/[0.03] border border-white/10 rounded-xl px-4 py-2.5 text-xs font-bold focus:outline-none focus:border-cyan-400">
+            <select name="platform" class="h-input py-2.5 px-4 text-xs w-48">
                 <option value="all" @if($initialPlatform === 'all') selected @endif>All Platforms</option>
                 <option value="android" @if($initialPlatform === 'android') selected @endif>Android</option>
                 <option value="ios" @if($initialPlatform === 'ios') selected @endif>iOS</option>

@@ -17,7 +17,7 @@
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="bg-[#050505] text-[#f0f6ff] antialiased overflow-hidden h-screen flex font-jakarta selection:bg-cyan-500/30 selection:text-cyan-200">
+<body class="bg-[#050505] text-[#f0f6ff] antialiased overflow-hidden h-screen flex font-jakarta selection:bg-cyan-500/30 selection:text-cyan-200" style="font-family: 'Inter', sans-serif;">
 
     {{-- 🔥 BACKGROUND EFFECTS --}}
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0">

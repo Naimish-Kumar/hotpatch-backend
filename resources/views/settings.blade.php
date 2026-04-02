@@ -16,7 +16,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="space-y-2">
                     <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest pl-2">App Name</label>
-                    <input type="text" name="name" value="{{ $app->name }}" class="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white focus:border-cyan-400 focus:outline-none transition-all placeholder:text-gray-700">
+                    <input type="text" name="name" value="{{ $app->name }}" class="h-input">
                 </div>
                 <div class="space-y-2">
                     <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest pl-2">APP ID</label>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Urbanist:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -25,15 +25,15 @@
 @layer base {
   body {
     @apply bg-[#050505] text-[#f0f6ff] antialiased selection:bg-cyan-500/30 selection:text-cyan-200;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
 
 @layer components {
   /* Typography Aliases */
-  .font-heading { font-family: 'Outfit', sans-serif; }
+  .font-heading { font-family: 'Urbanist', sans-serif; }
   .font-mono { font-family: 'JetBrains Mono', monospace; }
-  .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .font-jakarta { font-family: 'Inter', sans-serif; }
   
   /* Glass Cards & Glowing Containers */
   .glass-card {
@@ -95,6 +95,26 @@
 
   .status-dot.on { @apply text-[#00e5a0]; }
   .status-dot.off { @apply text-[#5c7a9e] opacity-50; }
+
+  /* Identical & Amazing Textfields */
+  .h-input {
+    @apply w-full bg-white/[0.02] border border-white/[0.1] rounded-2xl py-4 px-6 text-[13px] font-bold text-white placeholder:text-white/20 outline-none transition-all duration-300;
+  }
+  .h-input:hover {
+    @apply bg-white/[0.04] border-white/[0.2];
+  }
+  .h-input:focus {
+    @apply border-cyan-400/40 bg-white/[0.05] ring-4 ring-cyan-400/5 shadow-[0_0_30px_-10px_rgba(0,212,255,0.15)];
+  }
+
+  select.h-input {
+    @apply appearance-none cursor-pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white' opacity='0.5'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-position: right 1.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    padding-right: 3.5rem;
+  }
 }
 
 /* Scrollbar Styling */

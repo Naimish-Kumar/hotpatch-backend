@@ -34,27 +34,27 @@
                     <div class="group">
                         <label class="text-[10px] font-black uppercase text-[#3a5a7a] tracking-[4px] block mb-4 group-focus-within:text-cyan-400 transition-colors font-heading">Display Identity</label>
                         <div class="relative">
-                            <i data-lucide="user" class="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors"></i>
+                            <i data-lucide="user" class="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors z-10"></i>
                             <input type="text" name="display_name" value="{{ old('display_name') }}" placeholder="Operator Name" required
-                                class="w-full bg-black/40 border border-white/10 rounded-2xl py-4.5 pl-14 pr-5 text-[14px] text-white focus:outline-none focus:border-cyan-400 focus:bg-black/60 transition-all placeholder:opacity-20 shadow-lg">
+                                class="h-input pl-14">
                         </div>
                     </div>
 
                     <div class="group">
                         <label class="text-[10px] font-black uppercase text-[#3a5a7a] tracking-[4px] block mb-4 group-focus-within:text-cyan-400 transition-colors font-heading">Secure Communication</label>
                         <div class="relative">
-                            <i data-lucide="mail" class="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors"></i>
+                            <i data-lucide="mail" class="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors z-10"></i>
                             <input type="email" name="email" value="{{ old('email') }}" placeholder="name@company.com" required
-                                class="w-full bg-black/40 border border-white/10 rounded-2xl py-4.5 pl-14 pr-5 text-[14px] text-white focus:outline-none focus:border-cyan-400 focus:bg-black/60 transition-all placeholder:opacity-20 shadow-lg">
+                                class="h-input pl-14">
                         </div>
                     </div>
 
                     <div class="group">
                         <label class="text-[10px] font-black uppercase text-[#3a5a7a] tracking-[4px] block mb-4 group-focus-within:text-cyan-400 transition-colors font-heading">Master Credential</label>
                         <div class="relative">
-                            <i data-lucide="lock" class="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors"></i>
+                            <i data-lucide="lock" class="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors z-10"></i>
                             <input type="password" name="password" placeholder="••••••••" required
-                                class="w-full bg-black/40 border border-white/10 rounded-2xl py-4.5 pl-14 pr-5 text-[14px] text-white focus:outline-none focus:border-cyan-400 focus:bg-black/60 transition-all placeholder:opacity-20 shadow-lg">
+                                class="h-input pl-14">
                         </div>
                     </div>
                     

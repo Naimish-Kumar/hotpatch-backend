@@ -43,8 +43,8 @@
                 <nav class="sticky top-28 space-y-10">
                     {{-- Search UI --}}
                     <div class="relative group mb-10">
-                        <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors"></i>
-                        <input type="text" placeholder="QUERY DOCUMENTATION..." class="w-full bg-white/[0.02] border border-white/5 rounded-2xl py-3.5 pl-11 pr-4 text-[10px] font-black text-white focus:outline-none focus:border-cyan-400 focus:bg-white/[0.04] transition-all font-heading tracking-[3px] uppercase placeholder:opacity-20 shadow-inner">
+                        <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors z-10"></i>
+                        <input type="text" placeholder="QUERY DOCUMENTATION..." class="h-input pl-11 py-3.5 tracking-[3px]">
                     </div>
 
                     <div class="space-y-12 h-[calc(100vh-280px)] overflow-y-auto scrollbar-hide pr-2">

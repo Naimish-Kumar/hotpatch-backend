@@ -41,9 +41,9 @@
                     <div class="group">
                         <label class="text-[10px] font-black uppercase text-[#3a5a7a] tracking-[4px] block mb-4 group-focus-within:text-cyan-400 transition-colors font-heading">Access Email</label>
                         <div class="relative">
-                            <i data-lucide="mail" class="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors"></i>
+                            <i data-lucide="mail" class="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors z-10"></i>
                             <input type="email" name="email" value="{{ old('email') }}" placeholder="name@company.com" required
-                                class="w-full bg-black/40 border border-white/10 rounded-2xl py-4.5 pl-14 pr-5 text-[15px] text-white focus:outline-none focus:border-cyan-400 focus:bg-black/60 transition-all placeholder:text-[#3a203a20] placeholder:opacity-30 shadow-lg font-jakarta">
+                                class="h-input pl-14">
                         </div>
                     </div>
                     <div class="group font-jakarta">
@@ -52,9 +52,9 @@
                             <a href="#" class="text-[9px] font-black uppercase tracking-widest text-[#5c7a9e] hover:text-white transition-colors">Forgot?</a>
                         </div>
                         <div class="relative">
-                            <i data-lucide="lock" class="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors"></i>
+                            <i data-lucide="lock" class="absolute left-5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-[#3a5a7a] group-focus-within:text-cyan-400 transition-colors z-10"></i>
                             <input type="password" name="password" placeholder="••••••••" required
-                                class="w-full bg-black/40 border border-white/10 rounded-2xl py-4.5 pl-14 pr-5 text-[15px] text-white focus:outline-none focus:border-cyan-400 focus:bg-black/60 transition-all placeholder:text-[#3a203a20] placeholder:opacity-30 shadow-lg">
+                                class="h-input pl-14">
                         </div>
                     </div>
                     
@@ -80,7 +80,7 @@
                     <div class="group">
                         <label class="text-[10px] font-black uppercase text-[#3a5a7a] tracking-[4px] block mb-4 group-focus-within:text-cyan-400 transition-colors font-heading">Master API Key</label>
                         <input type="password" placeholder="hp_live_xxxxxxxx" 
-                            class="font-mono w-full bg-black/40 border border-white/10 rounded-2xl py-5 px-6 text-[14px] text-[#00d4ff] focus:outline-none focus:border-cyan-400 focus:bg-black/60 transition-all placeholder:text-cyan-900/40 shadow-lg">
+                            class="h-input font-mono text-cyan-400">
                     </div>
                     <div class="p-6 glass-card bg-cyan-500/[0.03] border-cyan-500/10 mb-2">
                         <div class="flex items-start gap-4">

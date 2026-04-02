@@ -198,11 +198,11 @@
                 <div class="grid grid-cols-2 gap-10">
                     <div>
                         <label class="text-[11px] font-black uppercase text-[#3a5a7a] tracking-[5px] block mb-5 font-heading">VERSION SEAL</label>
-                        <input type="text" placeholder="e.g. 1.0.5" class="w-full bg-black/60 border border-white/15 rounded-2xl px-6 py-5 text-white font-mono text-sm focus:outline-none focus:border-cyan-400 transition-all placeholder:opacity-20 shadow-inner">
+                        <input type="text" placeholder="e.g. 1.0.5" class="h-input font-mono">
                     </div>
                     <div>
                         <label class="text-[11px] font-black uppercase text-[#3a5a7a] tracking-[5px] block mb-5 font-heading">TARGET NODE</label>
-                        <select class="w-full bg-black/60 border border-white/15 rounded-2xl px-6 py-5 text-white font-bold text-xs uppercase tracking-widest focus:outline-none focus:border-cyan-400 transition-all shadow-inner font-heading">
+                        <select class="h-input font-heading text-xs">
                             @foreach($channels as $ch)
                                 <option value="{{ $ch->slug }}">{{ $ch->name }} ENV</option>
                             @endforeach
