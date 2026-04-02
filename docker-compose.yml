@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hotpatch-api:latest
+    container_name: hotpatch-app
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./storage:/var/www/storage
+      - ./bootstrap/cache:/var/www/bootstrap/cache
+    env_file:
+      - .env
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: mysql:8.0
+    container_name: hotpatch-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-hotpatch}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
+    volumes:
+      - hotpatch-db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:alpine
+    container_name: hotpatch-redis
+    restart: unless-stopped
+    volumes:
+      - hotpatch-redis-data:/data
+
+volumes:
+  hotpatch-db-data:
+  hotpatch-redis-data:

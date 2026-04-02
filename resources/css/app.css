@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #050505;
+  --navy2: #0a1628;
+  --navy3: #0f2040;
+  --blue: #1a3a6b;
+  --cyan: #00d4ff;
+  --cyan2: #00aacc;
+  --cdim: rgba(0, 212, 255, 0.12);
+  --white: #f0f6ff;
+  --muted: #5c7a9e;
+  --muted2: #3a5a7a;
+  --green: #00e5a0;
+  --red: #ff4d6a;
+  --amber: #ffb830;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-cyan: rgba(0, 212, 255, 0.2);
+}
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-[#f0f6ff] antialiased selection:bg-cyan-500/30 selection:text-cyan-200;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Typography Aliases */
+  .font-heading { font-family: 'Outfit', sans-serif; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  
+  /* Glass Cards */
+  .glass-card {
+    @apply bg-white/[0.02] border border-white/[0.06] rounded-2xl backdrop-blur-md;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  .glass-card-hover {
+    @apply hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300;
+  }
+
+  .cyan-glow {
+    @apply shadow-[0_0_40px_-10px_rgba(0,212,255,0.3)];
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply px-6 py-2.5 bg-[#00d4ff] text-[#050505] font-bold rounded-xl hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(0,212,255,0.2)];
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2.5 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all;
+  }
+
+  /* Progress & Status Indicators */
+  .ptrack {
+    @apply h-1 w-full bg-white/[0.05] rounded-full overflow-hidden;
+  }
+
+  .pfill {
+    @apply h-full bg-[#00d4ff] rounded-full;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .status-dot {
+    @apply inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest;
+  }
+
+  .status-dot::before {
+    @apply content-[''] w-1.5 h-1.5 rounded-full bg-current;
+  }
+
+  .status-dot.on { @apply text-[#00e5a0]; }
+  .status-dot.off { @apply text-[#5c7a9e]; }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .25; }
+}
+
+@keyframes gridPulse {
+  0% { opacity: .45; }
+  100% { opacity: 1; }
+}
+
+.afu { animation: fadeInUp 0.6s cubic-bezier(0.2, 0, 0.2, 1) both; }
+.afu-1 { animation: fadeInUp 0.6s 0.1s cubic-bezier(0.2, 0, 0.2, 1) both; }
+.afu-2 { animation: fadeInUp 0.6s 0.2s cubic-bezier(0.2, 0, 0.2, 1) both; }
+.afu-3 { animation: fadeInUp 0.6s 0.3s cubic-bezier(0.2, 0, 0.2, 1) both; }
+.afu-4 { animation: fadeInUp 0.6s 0.4s cubic-bezier(0.2, 0, 0.2, 1) both; }
+
+.hero-grid {
+  background-image: linear-gradient(rgba(0, 212, 255, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 255, .04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridPulse 8s ease-in-out infinite alternate;
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  background: var(--cyan);
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
