@@ -111,6 +111,7 @@
 
 
     <main class="min-h-screen pt-20">
+        @inertia
         @yield('content')
     </main>
 
