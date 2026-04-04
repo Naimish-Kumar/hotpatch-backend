@@ -5,6 +5,8 @@
 @tailwind utilities;
 
 @layer base {
+  [x-cloak] { display: none !important; }
+
   body {
     @apply bg-[#050505] text-[#f0f6ff] antialiased;
     font-family: 'Inter', system-ui, sans-serif;
@@ -16,6 +18,23 @@
 }
 
 @layer components {
+  .glass-nav {
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(24px) saturate(180%);
+    @apply border-b border-white/[0.05];
+  }
+
+  .cursor-aura {
+    width: 800px; height: 800px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    position: fixed;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    filter: blur(80px);
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
   .font-heading { font-family: 'Urbanist', sans-serif; }
   .font-mono { font-family: 'JetBrains Mono', monospace; }
   .font-jakarta { font-family: 'Inter', sans-serif; }

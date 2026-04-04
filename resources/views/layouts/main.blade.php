@@ -14,26 +14,6 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <style>
-        [x-cloak] { display: none !important; }
-        .glass-nav {
-            background: rgba(5, 5, 5, 0.7);
-            backdrop-filter: blur(24px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .cursor-aura {
-            width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.04) 0%, transparent 70%);
-            pointer-events: none;
-            position: fixed;
-            z-index: 100;
-            transform: translate(-50%, -50%);
-            filter: blur(80px);
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-    </style>
 </head>
 <body class="selection:bg-cyan-500/30 selection:text-cyan-200 antialiased overflow-x-hidden" x-data="{ 
     mobileMenu: false,
@@ -45,7 +25,7 @@
         this.cursorY = e.clientY;
         this.hasMoved = true;
     }
-}" @mousemove.window="updateCursor($event)" style="font-family: 'Inter', sans-serif;">
+}" @mousemove.window="updateCursor($event)">
 
     {{-- CURSOR GLOW --}}
     <div class="cursor-aura" :style="`left: ${cursorX}px; top: ${cursorY}px; opacity: ${hasMoved ? 1 : 0};`" x-cloak></div>
