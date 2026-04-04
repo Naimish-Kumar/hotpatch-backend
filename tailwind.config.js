@@ -10,6 +10,8 @@ export default {
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
                 syne: ['Syne', 'sans-serif'],
+                heading: ['Urbanist', 'sans-serif'],
+                jakarta: ['Inter', 'sans-serif'],
                 mono: ['JetBrains Mono', 'monospace'],
             },
         },
