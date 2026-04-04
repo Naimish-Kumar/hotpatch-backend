@@ -111,7 +111,9 @@
 
 
     <main class="min-h-screen pt-20">
-        @inertia
+        @if(isset($page))
+            @inertia
+        @endif
         @yield('content')
     </main>
 
